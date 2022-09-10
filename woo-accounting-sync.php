@@ -34,7 +34,7 @@ class WASync{
   }
 
   public function menu(){
-    add_options_page('WooCommerce Akaunting Sync Settings', 'Akaunting WooCommerce', 'manage_options', 'akaunting-woocommerce', array($this, 'display_options'));
+    add_options_page('WooCommerce Akaunting Sync Settings', 'WASync', 'manage_options', 'wasync', array($this, 'display_options'));
   }
 
   public function register_options(){
@@ -57,3 +57,7 @@ class WASync{
     require_once(AKAWOO_PATH . 'options.php');
   }
 }
+function WASyncInit() {
+    new WASync();
+}
+add_action('init', 'WASyncInit');
