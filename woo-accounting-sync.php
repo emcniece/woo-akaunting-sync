@@ -20,7 +20,7 @@ class WASync{
 
   public function init(){
     global $wp_customize;
-
+    print_r($wp_customize);
     if (!is_admin()) {
         // to do
     } elseif (!isset($wp_customize)) {
