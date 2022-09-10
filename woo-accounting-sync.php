@@ -14,9 +14,7 @@ defined( 'ABSPATH' ) or die( 'No direct execution' );
 
 class WASync{
   public function __construct(){
-    //$this->constants();
-    //require_once(AKAWOO_PATH . 'library/helper.php');
-
+    $this->constants();
     $this->init();
   }
 
