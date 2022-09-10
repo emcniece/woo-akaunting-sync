@@ -26,9 +26,11 @@ class WASync{
     if (!is_admin()) {
         // to do
     } elseif (!isset($wp_customize)) {
-      add_action('admin_menu', array($this, 'menu'));
-      add_action('admin_init', array($this, 'register_options'));
+      
     }
+
+    add_action('admin_menu', array($this, 'menu'));
+    add_action('admin_init', array($this, 'register_options'));
   }
 
   public function menu(){
