@@ -33,6 +33,12 @@ class WASync{
     add_action('admin_init', array($this, 'register_options'));
   }
 
+  public function constants(){
+    if (!defined('WASYNC_PATH')) {
+        define('WASYNC_PATH', plugin_dir_path(__FILE__));
+    }
+  }
+
   public function menu(){
     add_options_page('WooCommerce Akaunting Sync Settings', 'WASync', 'manage_options', 'wasync', array($this, 'display_options'));
   }
@@ -54,7 +60,7 @@ class WASync{
       do_action('send_success');
     }
 
-    require_once(AKAWOO_PATH . 'options.php');
+    require_once(WASYNC_PATH . 'options.php');
   }
 }
 function WASyncInit() {
