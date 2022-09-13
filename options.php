@@ -28,16 +28,11 @@
             <tr valign="top">
                 <th scope="row">Server ping</th>
                 <td>
-                    <textarea style="width:100%;min-height:130px;"><?php echo $pingresp['body'] ?></textarea>
+                    <textarea style="width:100%;"><?php echo $pingresp['body'] ?></textarea>
                 </td>
             </tr>
 
         </table>
-
-
-        <p class="submit">
-            <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Settings">
-        </p>
 
         <?php submit_button(); ?>
     </form>

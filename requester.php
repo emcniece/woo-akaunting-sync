@@ -33,13 +33,5 @@ class Requester{
 
 
         return array("headers"=>$headers, "body"=>$content);
-
-        // if (!is_array($content)) {
-        //     $content = $content->getAll();
-        // } else {
-        //     $content = wp_remote_retrieve_body($response);
-        // }
-
-        // return $content;
     }
 }
