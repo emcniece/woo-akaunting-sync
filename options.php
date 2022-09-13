@@ -28,7 +28,7 @@
             <tr valign="top">
                 <th scope="row">Server ping</th>
                 <td>
-                    <textarea><?php echo $pingresp['body'] ?></textarea>
+                    <textarea style="width:100%;"><?php echo $pingresp['body'] ?></textarea>
                 </td>
             </tr>
 
