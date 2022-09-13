@@ -22,7 +22,7 @@ class Requester{
     }
 
     private function request($url, $args = array(), $method){
-        $encoded = base64_encode($this->user.':'.$this->pass)
+        $encoded = base64_encode($this->user.':'.$this->pass);
         $args['timeout'] = 25;
         $args['method'] = $method;
         $args['headers'] = array('Authorization' => "Basic $encoded");
