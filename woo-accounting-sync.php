@@ -17,6 +17,7 @@ class WASync{
     $this->constants();
     $this->init();
     require_once(WASYNC_PATH.'requester.php');
+    $this->ping();
   }
 
   public function init(){
