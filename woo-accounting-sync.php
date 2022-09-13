@@ -50,12 +50,13 @@ class WASync{
 
     // check if the user have submitted the settings
     // wordpress will add the "settings-updated" $_GET parameter to the url
-    if (true or isset($_GET['settings-updated'])) {
+    if (isset($_GET['settings-updated'])) {
       settings_errors('wasync-options');
     } elseif (isset($_GET['wasync']) && ($_GET['wasync'] == 'send-success')) {
       do_action('send_success');
     }
-    $test = "helllooo";
+
+    $pingresp = $this->ping();
 
     require_once(WASYNC_PATH . 'options.php');
   }
@@ -93,9 +94,7 @@ class WASync{
     $pass = get_option('wasync_password');
 
     $requester = new Requester($user, $pass);
-    print_r("meow1");
     print_r($requester->get($url));
-    print_r("meow2");
   }
 }
 function WASyncInit() {

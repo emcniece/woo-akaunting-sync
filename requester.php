@@ -28,14 +28,18 @@ class Requester{
         $args['headers'] = array('Authorization' => "Basic $encoded");
 
         $response = wp_remote_request($url, $args);
-        $content = wp_remote_retrieve_headers($response);
+        $headers = wp_remote_retrieve_headers($response);
+        $content = wp_remote_retrieve_body($response);
 
-        if (!is_array($content)) {
-            $content = $content->getAll();
-        } else {
-            $content = wp_remote_retrieve_body($response);
-        }
 
-        return $content;
+        return array["headers"=>$headers, "body"=>$content]
+
+        // if (!is_array($content)) {
+        //     $content = $content->getAll();
+        // } else {
+        //     $content = wp_remote_retrieve_body($response);
+        // }
+
+        // return $content;
     }
 }
