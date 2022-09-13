@@ -50,7 +50,7 @@ class WASync{
 
     // check if the user have submitted the settings
     // wordpress will add the "settings-updated" $_GET parameter to the url
-    if (isset($_GET['settings-updated'])) {
+    if (true or isset($_GET['settings-updated'])) {
       settings_errors('wasync-options');
     } elseif (isset($_GET['wasync']) && ($_GET['wasync'] == 'send-success')) {
       do_action('send_success');
