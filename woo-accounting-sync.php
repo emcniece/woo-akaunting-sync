@@ -91,7 +91,7 @@ class WASync{
     $user = get_option('wasync_user');
     $pass = get_option('wasync_password');
 
-    $requester = new Requester();
+    $requester = new Requester($user, $pass);
     print_r("meow");
     print_r($requester.get($url));
   }
