@@ -7,8 +7,24 @@
         <table class="form-table">
             <tr valign="top">
                 <th scope="row">Akaunting URL</th>
-                <td><input type="text" name="wasync_url" required="required" value="<?php echo esc_attr(get_option('wasync_url')); ?>" /></td>
+                <td>
+                    <input type="text" name="wasync_url" required="required" value="<?php echo esc_attr(get_option('wasync_url')); ?>" />
+                </td>
             </tr>
+
+            <tr valign="top">
+                <th scope="row">Akaunting Username</th>
+                <td>
+                    <input type="text" name="wasync_user" required="required" value="<?php echo esc_attr(get_option('wasync_user')); ?>" />
+                    </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Akaunting Password</th>
+                <td>
+                    <input type="password" name="wasync_password" required="required" value="<?php echo esc_attr(get_option('wasync_password')); ?>" />
+                </td>
+            </tr>
+
         </table>
 
         <p class="submit">

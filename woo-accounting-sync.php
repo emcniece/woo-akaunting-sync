@@ -19,16 +19,10 @@ class WASync{
   }
 
   public function init(){
-    global $wp_customize;
-    print_r($wp_customize);
-    if (!is_admin()) {
-        // to do
-    } elseif (!isset($wp_customize)) {
-      
-    }
-
     add_action('admin_menu', array($this, 'menu'));
     add_action('admin_init', array($this, 'register_options'));
+
+    add_action('save_post_product', array($this, 'woo_product'));
   }
 
   public function constants(){
