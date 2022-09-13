@@ -20,7 +20,6 @@ class WASync{
   }
 
   public function init(){
-    //print_r('meow');
     add_action('admin_menu', array($this, 'menu'));
     add_action('admin_init', array($this, 'register_options'));
 
@@ -29,7 +28,7 @@ class WASync{
 
   public function constants(){
     if (!defined('WASYNC_PATH')) {
-        define('WASYNC_PATH', plugin_dir_path(__FILE__));
+      define('WASYNC_PATH', plugin_dir_path(__FILE__));
     }
   }
 
@@ -39,6 +38,8 @@ class WASync{
 
   public function register_options(){
     register_setting('wasync-options', 'wasync_url');
+    register_setting('wasync-options', 'wasync_user');
+    register_setting('wasync-options', 'wasync_password');
   }
 
   public function display_options(){
@@ -82,6 +83,12 @@ class WASync{
     }
 
     $helper->storeProduct($data);
+  }
+
+  public function ping(){
+    $url = get_option('wasync_url').'/api/ping';
+    $user = get_option('wasync_user');
+    $pass = get_option('wasync_password');
   }
 }
 function WASyncInit() {
