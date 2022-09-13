@@ -32,7 +32,7 @@ class Requester{
         $content = wp_remote_retrieve_body($response);
 
 
-        return array["headers"=>$headers, "body"=>$content]
+        return array("headers"=>$headers, "body"=>$content);
 
         // if (!is_array($content)) {
         //     $content = $content->getAll();
