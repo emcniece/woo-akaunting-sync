@@ -20,7 +20,7 @@ class WASync{
   }
 
   public function init(){
-    print_r('meow');
+    //print_r('meow');
     add_action('admin_menu', array($this, 'menu'));
     add_action('admin_init', array($this, 'register_options'));
 
