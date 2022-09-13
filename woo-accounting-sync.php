@@ -16,7 +16,7 @@ class WASync{
   public function __construct(){
     $this->constants();
     $this->init();
-    require_once(plugin_dir_path(__FILE__).'requester.php')
+    require_once(WASYNC_PATH.'requester.php');
   }
 
   public function init(){
