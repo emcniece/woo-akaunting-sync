@@ -14,14 +14,14 @@ class Requester{
     }
 
     public function post($url, $data){
-        return $this->request($url, array('body' => $data), 'POST');
+        return $this->request($url, 'POST', array('body' => $data));
     }
 
     public function patch($url, $data){
-        return $this->request($url, array('body' => $data), 'PATCH');
+        return $this->request($url, 'PATCH', array('body' => $data));
     }
 
-    private function request($url, $args = array(), $method){
+    private function request($url, $method, $args=array()){
         $encoded = base64_encode($this->user.':'.$this->pass);
         $args['timeout'] = 25;
         $args['method'] = $method;
