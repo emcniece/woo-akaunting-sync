@@ -3,7 +3,7 @@
     <form action="options.php" method="post">
         <?php settings_fields('wasync-options'); ?>
         <?php do_settings_sections('wasync-options'); ?>
-
+        start <?php echo $test ?> end
         <table class="form-table">
             <tr valign="top">
                 <th scope="row">Akaunting URL</th>

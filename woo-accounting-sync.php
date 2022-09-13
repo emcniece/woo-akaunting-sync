@@ -55,6 +55,7 @@ class WASync{
     } elseif (isset($_GET['wasync']) && ($_GET['wasync'] == 'send-success')) {
       do_action('send_success');
     }
+    $test = "helllooo"
 
     require_once(WASYNC_PATH . 'options.php');
   }
