@@ -16,9 +16,11 @@ class WASync{
   public function __construct(){
     $this->constants();
     $this->init();
+    require_once(plugin_dir_path(__FILE__).'requester.php')
   }
 
   public function init(){
+    print_r('meow');
     add_action('admin_menu', array($this, 'menu'));
     add_action('admin_init', array($this, 'register_options'));
 
@@ -53,6 +55,33 @@ class WASync{
     }
 
     require_once(WASYNC_PATH . 'options.php');
+  }
+
+  public function woo_product($post_id, $post = null, $update = null){
+    if ($update) {
+      return;
+    }
+
+    // Akaunting helper
+    $helper = $this->check_options();
+
+    if (empty($helper)) {
+      return;
+    }
+
+    $product = wc_get_product($post_id);
+
+    $data = $product->get_data();
+
+    if ($data['status'] != 'publish') {
+      return;
+    }
+
+    if ($product->get_type() == 'variable') {
+      $data['variations'] = $product->get_available_variations();
+    }
+
+    $helper->storeProduct($data);
   }
 }
 function WASyncInit() {
