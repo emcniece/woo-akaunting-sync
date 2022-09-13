@@ -89,6 +89,9 @@ class WASync{
     $url = get_option('wasync_url').'/api/ping';
     $user = get_option('wasync_user');
     $pass = get_option('wasync_password');
+
+    $requester = new Requester();
+    print_r($requester.get($url));
   }
 }
 function WASyncInit() {
