@@ -25,6 +25,9 @@ class WASync{
     add_action('admin_init', array($this, 'register_options'));
 
     add_action('save_post_product', array($this, 'woo_product'));
+    add_action('user_register', array($this, 'woo_customer'));
+    add_action('woocommerce_checkout_order_processed', array($this, 'woo_order'));
+    add_action('woocommerce_update_order', array($this, 'woo_order'));
   }
 
   public function constants(){
@@ -87,6 +90,47 @@ class WASync{
 
     $helper->storeProduct($data);
   }
+
+  public function woo_customer($user_id){
+        // Akaunting helper
+        $helper = $this->check_options();
+
+        if (empty($helper)) {
+            return;
+        }
+
+        $user = get_user_by('id', $user_id);
+
+        $address = $this->getCustomerAddress($user);
+
+        $customer = array(
+            'meta' => get_user_meta($user->ID),
+            'email' => $user->user_email,
+            'address' => $address,
+        );
+
+        $helper->storeCustomer($customer);
+    }
+
+    public function woo_order($order_id){
+        $helper = $this->check_options();
+
+        if (empty($helper)) {
+            return;
+        }
+
+        $order = wc_get_order($order_id);
+
+        $paid_statuses = ['processing', 'completed'];
+
+        if (!in_array(strtolower($order->status), $paid_statuses)) {
+            return;
+        }
+
+        $helper->storeOrder($order->get_data());
+    }
+
+  /* TODO: make the woo_* functions work */
 
   public function ping(){
     $url = get_option('wasync_url').'/api/ping';
