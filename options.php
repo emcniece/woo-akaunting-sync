@@ -35,7 +35,10 @@
         </table>
 
         <?php submit_button(); ?>
-        <?php submit_button( __( 'Set account pages' ), 'secondary', 'set_account_pages' ) ?>
+        <?php submit_button( __( 'Sync Invoices' ), 'secondary', 'sync_invoices' )
+
+        print_r($_POST)
+        ?>
 
     </form>
 </div>
