@@ -34,8 +34,9 @@
 
         </table>
 
-        <?php submit_button(); ?>
-        <?php submit_button( __( 'Sync Invoices' ), 'secondary', 'sync_invoices' )
+        <?php
+        submit_button();
+        submit_button( __( 'Sync Invoices' ), 'secondary', 'sync_invoices' );
 
         print_r($_POST);
         ?>
