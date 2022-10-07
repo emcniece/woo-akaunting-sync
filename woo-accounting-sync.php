@@ -54,7 +54,7 @@ class WASync{
     print_r('GET:');
     print_r($_GET);
 
-    print_r('POST:')
+    print_r('POST:');
     print_r($_POST);
 
 
