@@ -51,6 +51,13 @@ class WASync{
       wp_die(__('You do not have sufficient permissions to access this page.'));
     }
 
+    print_r('GET:');
+    print_r($_GET);
+
+    print_r('POST:')
+    print_r($_POST);
+
+
     // check if the user have submitted the settings
     // wordpress will add the "settings-updated" $_GET parameter to the url
     if (isset($_GET['settings-updated'])) {

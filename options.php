@@ -37,8 +37,6 @@
         <?php
         submit_button();
         submit_button( __( 'Sync Invoices' ), 'secondary', 'sync_invoices' );
-
-        print_r($_POST);
         ?>
 
     </form>
