@@ -12,6 +12,16 @@ Text Domain: wasync
 
 defined( 'ABSPATH' ) or die( 'No direct execution' );
 
+if ( ! function_exists('write_log')) {
+   function write_log ( $log )  {
+      if ( is_array( $log ) || is_object( $log ) ) {
+         error_log( print_r( $log, true ) );
+      } else {
+         error_log( $log );
+      }
+   }
+}
+
 class WASync{
   public function __construct(){
     $this->constants();
@@ -51,11 +61,11 @@ class WASync{
       wp_die(__('You do not have sufficient permissions to access this page.'));
     }
 
-    print_r('GET:');
-    print_r($_GET);
+    write_log('GET:');
+    write_log($_GET);
 
-    print_r('POST:');
-    print_r($_POST);
+    write_log('POST:');
+    write_log($_POST);
 
 
     // check if the user have submitted the settings
