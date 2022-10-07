@@ -35,5 +35,7 @@
         </table>
 
         <?php submit_button(); ?>
+        <?php submit_button( __( 'Set account pages' ), 'secondary', 'set_account_pages' ) ?>
+
     </form>
 </div>
